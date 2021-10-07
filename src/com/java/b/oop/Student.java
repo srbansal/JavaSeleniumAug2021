@@ -1,4 +1,4 @@
-package com.java.oop;
+package com.java.b.oop;
 
 public class Student {
 //	instance variables/ properties
@@ -60,6 +60,7 @@ public class Student {
 
 	public static void main(String[] args) {
 		int count=0;	// local
+//		int count;  // no default value, so can't be used without assigning a value to it
 		System.out.println(count); 
 		System.out.println(schoolName); // can be accessed from static method directly
 		System.out.println(Student.schoolName); 
