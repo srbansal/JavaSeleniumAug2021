@@ -14,14 +14,51 @@ class Vehicle
 {
 	int speed = 80;
 	
-	
+	void show() 	// print speed of Vehicle
+	{
+		System.out.println("Speed of Vehicle: " + speed);
+	}
+
+	void print()
+	{
+		System.out.println("V print");
+	}
 }
 
 public class Bike extends Vehicle {
-
+	int speed = 60; 
+	
+	void show() 	// print speed of Bike
+	{
+		System.out.println("Speed of Bike: " + speed);
+	}
+	
+	void showSpeed() 	// print both speeds (bike and vehicle in same method)
+	{
+		System.out.println("Speed of Bike: " + speed); // by default it would access local instance var
+		System.out.println("Speed of Vehicle: " + super.speed);
+	}
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		Bike b;
+		b = new Bike();
+//		System.out.println("Speed of Bike: " + b.speed);
+//		b.show();
+//		b.showSpeed();
+//		b = new Vehicle();  // not possible without type casting
+			
+		
+//		Solution
+		Vehicle v;
+		
+		v = new Bike();
+		v.show();
+//		v.print();  // query possible?: response > not possible as method overriding is not applicable here 
+		
+		v = new Vehicle();
+		v.show();
+//		v.print();  // this is possible
+		
 	}
 
 }
