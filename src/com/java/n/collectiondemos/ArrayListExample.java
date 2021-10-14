@@ -2,6 +2,7 @@ package com.java.n.collectiondemos;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.ListIterator;
 
 /*
 arrays (static/ fixed size): cannot increase/ decrease the size 
@@ -48,8 +49,9 @@ public class ArrayListExample {
 //		------- generics (type safety)    ArrayList<String> -----------
 		ArrayList<String> al = new ArrayList<String>(); // <> is called generics
 		ArrayList<String> al2 = new ArrayList<String>(); 
+//		ArrayList<String> al3 = new ArrayList(); 
 		
-
+		
 		al.add("Ram");
 		al.add("Pranav");
 		al.add("Ram");
@@ -58,6 +60,7 @@ public class ArrayListExample {
 		al.add("Rakesh");
 		al.add("Raj");
 		al.add("Rimsha");
+		al.add("Aishwarya");
 //		int i=9;
 //		al.add(i); // autoboxing > convert from primitive to class type > Integer
 		System.out.println(al);
@@ -83,14 +86,42 @@ public class ArrayListExample {
 //		}
 		
 //		third way to traverse: using Iterator
-		Iterator<String> it = al.iterator(); // Note: always import from util class)
+//		*** Iterator is a universal curson: can work with any of the collection classes
+		
+//		Iterator<String> it = al.iterator(); // Note: always import from util class)
 //		Iterator is an interface here
 //		iterator is a method of ArrayList
 		
-		while(it.hasNext())
+		
+		
+//		while(it.hasNext())
+//		{
+//			System.out.println(it.next());
+//		}
+//		
+//		System.out.println(it.hasNext());
+//		System.out.println(it.next());
+		
+//		----------------------
+//		System.out.println(it.next()); // error
+//		System.out.println(it.hasNext());  // false as we are at the end of al
+//		
+//		*** Iterator is a universal curson: can work with any of the collection classes
+//		ListIterator > applicable only for List
+		ListIterator<String> ltr = al.listIterator();
+		System.out.println("Forward direction");
+		while(ltr.hasNext())
 		{
-			System.out.println(it.next());
+			System.out.println(ltr.next());
+//			ltr.set(ltr.next().concat(" Hello"));
 		}
+		
+		System.out.println("Backward direction"); // pls ensure that you use forward direction once
+		while(ltr.hasPrevious())
+		{
+			System.out.println(ltr.previous());
+		}
+		
 		
 	}
 
